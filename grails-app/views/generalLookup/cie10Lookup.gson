@@ -1,0 +1,12 @@
+import com.cima.Cie10
+
+model{
+    List list
+}
+
+json{
+    cie10s list,{Cie10 o ->
+        descripcion o.descripcion
+        cie10   o.cie10
+    }
+}

@@ -1,4 +1,10 @@
-{
-    "name": "daniel"
+model {
 }
 
+json {
+    mensaje "hola mundo"
+    mensaje2 "hello world!!"
+    mensaje3 "hello everybody"
+    mensaje4 "Hello..."
+    
+}

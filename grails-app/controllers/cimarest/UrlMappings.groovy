@@ -14,6 +14,7 @@ class UrlMappings {
         "500"(view: '/error')
         "404"(view: '/notFound')
         
-        get "/api/lookup"
+        get "/api/generalLookup" (controller:"generalLookup",action:"index")
+        get "/api/generalLookup/cie10" (controller:"generalLookup",action:"cie10Lookup")
     }
 }
