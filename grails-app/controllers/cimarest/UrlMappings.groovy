@@ -16,5 +16,7 @@ class UrlMappings {
         
         get "/api/generalLookup" (controller:"generalLookup",action:"index")
         get "/api/generalLookup/cie10" (controller:"generalLookup",action:"cie10Lookup")
+        get "/api/generalLookup/especialidades" (controller:"generalLookup",action:"especialidadesLookup")
+        get "/api/generalLookup/provincias" (controller:"generalLookup",action:"provinciaLookup")
     }
 }

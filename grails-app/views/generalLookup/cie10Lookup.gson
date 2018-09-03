@@ -8,5 +8,6 @@ json{
     cie10s list,{Cie10 o ->
         descripcion o.descripcion
         cie10   o.cie10
+        id  o.id
     }
 }

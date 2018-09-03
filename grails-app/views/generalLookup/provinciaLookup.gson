@@ -1,0 +1,12 @@
+import com.cima.Provincia
+
+model{
+    List list
+}
+
+json{
+    provincias list,{Provincia o ->
+        nombre o.nombre
+        id  o.id
+    }
+}

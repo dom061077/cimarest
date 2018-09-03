@@ -1,0 +1,12 @@
+import com.cima.EspecialidadMedica
+
+model{
+    List list
+}
+
+json{
+    especialidades list,{EspecialidadMedica e ->
+        descripcion e.descripcion
+        id   e.id
+    }
+}
