@@ -65,8 +65,8 @@ dependencies {
     testRuntime "org.seleniumhq.selenium:selenium-api:3.6.0"
     runtime 'mysql:mysql-connector-java:6.0.5'
 
-    compile 'org.grails.plugins:spring-security-core:3.2.0'
-    compile "org.grails.plugins:spring-security-rest:2.0.0.M2"
+    compile 'org.grails.plugins:spring-security-core:3.2.3'
+    compile "org.grails.plugins:spring-security-rest:2.0.0.RC1"
 
 }
 

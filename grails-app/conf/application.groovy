@@ -2,9 +2,15 @@
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.active = true
 grails.plugin.springsecurity.rest.token.validation.useBearerToken = false
+
+grails.plugin.springsecurity.securityConfigType = "Annotation"
+
+
+grails.plugin.springsecurity.rest.token.validation.useBearerToken = false
 grails.plugin.springsecurity.rest.token.validation.headerName = 'X-Auth-Token'
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.example.auth.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.example.auth.UserRole'
+grails.plugin.springsecurity.rest.token.storage.jwt.secret =	'qrD6h8K6S9503Q06Y6Rfk21TErImPYqa'
 grails.plugin.springsecurity.authority.className = 'com.example.auth.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
