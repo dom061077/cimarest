@@ -9,7 +9,10 @@ import com.cima.Profesional
 import com.cima.Provincia
 import com.cima.Localidad
 import com.cima.ObraSocial
+import grails.plugin.springsecurity.annotation.Secured
 
+
+@Secured("ROLE_USER")
 class GeneralLookupController {
 	static responseFormats = ['json', 'xml']
         
