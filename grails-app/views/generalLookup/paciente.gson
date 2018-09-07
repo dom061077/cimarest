@@ -1,0 +1,9 @@
+import com.cima.Profesional
+
+model{
+    List<Profesional> list = []
+}
+
+json tmpl.'/profesional/profesional'("owner",list)
+    
+

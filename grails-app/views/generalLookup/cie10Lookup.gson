@@ -1,13 +1,9 @@
 import com.cima.Cie10
 
 model{
-    List list
+    List<Cie10> list = []
 }
 
-json{
-    cie10s list,{Cie10 o ->
-        descripcion o.descripcion
-        cie10   o.cie10
-        id  o.id
-    }
-}
+json tmpl.'/cie10/cie10'("owner",list)
+    
+

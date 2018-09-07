@@ -1,5 +1,12 @@
 package com.cima
 
+import com.cima.enums.EstadoCivilEnum
+import com.cima.enums.TipoDocumentoEnum
+import com.cima.enums.IvaEnum
+import com.cima.ObraSocial
+import com.cima.Institucion
+
+
 class Paciente {
     
 	Long dni
@@ -21,6 +28,7 @@ class Paciente {
 	TipoDocumentoEnum tipoDocumento
 	IvaEnum estadoIva
 	ObraSocial obraSocial    
+        Institucion institucion
 
     static constraints = {
     }

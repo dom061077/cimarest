@@ -1,0 +1,14 @@
+import com.cima.Cie10
+
+model{
+    Cie10 cie10
+}
+
+json g.render(cie10){
+    //prueba "TEST"
+}
+/*json{
+        descripcion cie10.descripcion
+        cie10   cie10.cie10
+        id  cie10.id    
+}*/
