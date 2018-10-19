@@ -1,0 +1,9 @@
+import com.cima.Profesional
+
+model{
+    def result = [:]
+}
+
+json result
+    
+

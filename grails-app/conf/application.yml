@@ -1,3 +1,10 @@
+grails:
+    cors:
+        enabled: true
+        mappings:
+            /api/**: inherit
+           
+
 ---
 grails:
     profile: rest-api

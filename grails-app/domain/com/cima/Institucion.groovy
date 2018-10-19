@@ -1,5 +1,8 @@
 package com.cima
 
+import grails.rest.*
+
+@Resource(uri='/instituciones',formats=['json', 'xml'])
 class Institucion {
 	String nombre
 	String direccion

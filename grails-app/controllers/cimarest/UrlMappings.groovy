@@ -19,5 +19,11 @@ class UrlMappings {
         get "/api/generalLookup/especialidades" (controller:"generalLookup",action:"especialidadesLookup")
         get "/api/generalLookup/provincias" (controller:"generalLookup",action:"provinciaLookup")
         get "/api/generalLookup/profesional" (controller:"generalLookup",action:"profesionalLookup")
+        
+        /*turnos-----------------*/
+        post "/api/addturno" (controller:"turnoRest",action:"add")
+        
+        /*-Pacientes------------------*/
+        get "/api/paciente/search" (controller:"pacienteRest",action:"search")
     }
 }

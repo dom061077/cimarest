@@ -1,0 +1,8 @@
+import com.cima.Profesional
+
+model {
+	Iterable<Profesional> profesionalList
+}
+
+json tmpl.profesional(profesionalList ?: [])
+

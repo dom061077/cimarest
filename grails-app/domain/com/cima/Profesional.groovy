@@ -4,10 +4,13 @@ import com.cima.enums.SexoEnum
 import com.cima.enums.TipoDocumentoEnum
 import com.cima.enums.TipoMatriculaEnum
 import com.cima.enums.IvaEnum
+import grails.rest.*
 
+
+@Resource(uri="/profesionales",superClass=ProfesionalController,formats=['json', 'xml'])
 class Profesional {
 	Integer matricula
-	String nombre
+	String nombre 
 	String observaciones
 	String domicilio
 	String codigoPostal

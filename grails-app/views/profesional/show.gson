@@ -1,0 +1,7 @@
+import com.cima.Profesional
+
+model {
+	Profesional profesional
+}
+
+json tmpl.profesional(profesional)
