@@ -1,9 +1,14 @@
-import com.cima.Profesional
+import com.cima.Paciente
 
 model{
-    def result = [:]
+    Map result
+    List<Paciente> pacientes=[]
 }
 
-json result
+json{ 
+    success result.success
+    list    pacientes.collect{[nombre:it.apellido]}
+    
+}
     
 
