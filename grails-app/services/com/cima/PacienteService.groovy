@@ -4,13 +4,11 @@ import grails.gorm.transactions.Transactional
 
 @Transactional
 class PacienteService {
-
+    //String filterArray = [];
     def search(String filter) {
+        
         def pacientes = Paciente.createCriteria().list([max:10]){
-            or{
-                ilike('apellido','%'+filter+'%')
-                ilike('nombre','%'+filter+'%')
-            }
+                ilike('apellidoNombre','%'+filter+'%')
         }
         return pacientes
     }

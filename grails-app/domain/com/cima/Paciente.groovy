@@ -12,6 +12,7 @@ class Paciente {
 	Long dni
 	String apellido
 	String nombre
+        String apellidoNombre
 	String domicilio
 	String codigoPostal
 	String telefono

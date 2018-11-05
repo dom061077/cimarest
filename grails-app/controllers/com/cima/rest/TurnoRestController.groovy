@@ -13,7 +13,7 @@ class TurnoRestController {
     def index() { }
     
     def add(){
-        log.debug('Parametros XXXX: '+request.JSON.fechaStart)
+        log.info('Parametros XXXX: '+request.JSON.fechaStart+', titulo: '+request.JSON.titulo)
         
         [result:params]
     }

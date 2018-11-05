@@ -14,9 +14,6 @@ class PacienteRestController {
     
     def search(String filter){
         def pacientes = pacienteService.search(filter)
-        pacientes.each{
-            log.debug('nombre paciente: '+it.apellido+' '+it.nombre)
-        } 
         //[result:pacientes] 
         def resultado = [:]
         resultado.success = true

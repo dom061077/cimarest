@@ -7,7 +7,7 @@ model{
 
 json{ 
     success result.success
-    list    pacientes.collect{[apellidoNombre:it.apellido+' '+it.nombre]} 
+    list    pacientes.collect{[id:it.id, apellidoNombre:it.apellido+' '+it.nombre]} 
     
 }
     
