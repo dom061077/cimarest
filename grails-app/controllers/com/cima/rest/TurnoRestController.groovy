@@ -13,8 +13,8 @@ class TurnoRestController {
     def index() { }
     
     def add(){
-        log.info('Parametros XXXX: '+request.JSON.fechaStart+', titulo: '+request.JSON.titulo)
-        
+        log.info('Todos los prametros: '+request.JSON)
+        def turnoInstance = new Turno(fecha)
         [result:params]
     }
     

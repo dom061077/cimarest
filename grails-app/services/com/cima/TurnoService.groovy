@@ -4,6 +4,7 @@ import grails.gorm.transactions.Transactional
 import com.cima.Paciente
 import com.cima.Profesional
 
+
 @Transactional
 class TurnoService {
     static transactional = true
