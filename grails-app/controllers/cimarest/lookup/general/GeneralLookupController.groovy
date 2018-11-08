@@ -86,9 +86,14 @@ class GeneralLookupController {
        
         List list = c.list(offset:offset,max:max){
             if(params.filtro)
-                ilike("descripcion","%"+params.filtro+"%")
+                ilike("nombre","%"+params.filtro+"%")
         }
         [list:list]
+    }
+    
+    def profesionalList(){
+        def list = Profesional.list()
+        [profesionales:list]
     }
     
     def obraSocialLookup(){

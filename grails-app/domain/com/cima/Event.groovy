@@ -5,8 +5,8 @@ import com.cima.enums.EstadoEvent
 class Event {
 	Date fechaStart
 	Date fechaEnd
-	Integer start
-	Integer end
+	String start
+	String end
 	String titulo
 	boolean allDay
 	boolean atendido

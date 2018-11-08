@@ -19,7 +19,7 @@ class UrlMappings {
         get "/api/generalLookup/especialidades" (controller:"generalLookup",action:"especialidadesLookup")
         get "/api/generalLookup/provincias" (controller:"generalLookup",action:"provinciaLookup")
         get "/api/generalLookup/profesional" (controller:"generalLookup",action:"profesionalLookup")
-        
+        get "/api/generalLookup/profesionales.json" (controller:"generalLookup",action:"profesionalList")
         /*turnos-----------------*/
         post "/api/addturno" (controller:"turnoRest",action:"add")
         

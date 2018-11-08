@@ -1,0 +1,11 @@
+import com.cima.Profesional
+
+model{
+    List<Profesional> profesionales = []
+}
+
+json {
+    list profesionales
+}
+    
+
