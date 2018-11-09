@@ -5,8 +5,8 @@ import com.cima.enums.EstadoEvent
 class Turno {
 	Date fechaStart
 	Date fechaEnd
-	Integer start
-	Integer end
+	String start
+	String end
 	String titulo
 	boolean allDay
 	boolean atendido
@@ -21,7 +21,7 @@ class Turno {
 		end (unique:'paciente')
 		paciente(nullable:true,blank:true)
 		profesional(nullable:false,blank:false)
-		user(nullable:true,blank:true)
+		//user(nullable:true,blank:true)
 		
     }
 	

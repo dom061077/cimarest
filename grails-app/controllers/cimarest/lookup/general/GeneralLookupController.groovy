@@ -92,7 +92,11 @@ class GeneralLookupController {
     }
     
     def profesionalList(){
-        def list = Profesional.list()
+        def c = Profesional.createCriteria()
+        def list = c.list(){
+            
+            order("nombre","asc")     
+        }
         [profesionales:list]
     }
     
@@ -105,6 +109,7 @@ class GeneralLookupController {
         List list = c.list(offset:offset,max:max){
             if(params.filtro)
                  ilike("descripcion","%"+params.filtro+"%")
+            
         }
         [list:list]
     }

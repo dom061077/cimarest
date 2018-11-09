@@ -5,7 +5,7 @@ model{
 }
 
 json {
-    list profesionales
+    list profesionales.collect{[id:it.id,nombre:it.nombre]} 
 }
     
 

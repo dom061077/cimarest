@@ -24,6 +24,7 @@ class TurnoRestController {
                     ,end: request.JSON.end,titulo: request.JSON.title
                     ,estado: EstadoEvent.EVENT_PENDIENTE)
         turnoService.save(turnoInstance,request.JSON.idPaciente,request.JSON.idProfesional)
+        
         [result:params]
     }
     
