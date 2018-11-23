@@ -32,5 +32,21 @@ class Paciente {
         Institucion institucion
 
     static constraints = {
+        domicilio(nullable:true,blank:true)
+        codigoPostal(nullable:true,blank:true)
+        telefono(nullable:true,blank:true)
+        fechaNacimiento(nullable:true,blank:true)
+        cuit(nullable:true,blank:true)
+        ocupacion(nullable:true,blank:true)
+        medicoEnviante(nullable:true,blank:true)
+        email(nullable:true,blank:true)
+        sexo(nullable:true,blank:true)
+        numeroAfiliado(nullable:true,blank:true)
+        localidad(nullable:true,blank:true)
+        estadoCivil(nullable:true,blank:true)
+        tipoDocumento(nullable:true,blank:true)
+        estadoIva(nullable:true,blank:true)
+        obraSocial(nullable:true,blank:true)
+        institucion(nullable:true,blank:true)
     }
 }

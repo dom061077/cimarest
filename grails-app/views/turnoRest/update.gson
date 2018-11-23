@@ -1,0 +1,8 @@
+import com.cima.Turno
+
+model {
+        Turno turno
+}
+
+
+json g.render(turno)

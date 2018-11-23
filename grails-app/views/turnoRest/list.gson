@@ -1,0 +1,9 @@
+import com.cima.Turno
+
+model{
+     List<Turno> turnos=[]
+}
+
+json turnos.collect{[id:it.id,title:it.titulo,start:it.start,end:it.end]} 
+    
+

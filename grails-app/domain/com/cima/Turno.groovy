@@ -22,6 +22,12 @@ class Turno {
 		paciente(nullable:true,blank:true)
 		profesional(nullable:false,blank:false)
 		//user(nullable:true,blank:true)
+                fechaStart validator: { val, obj ->
+                    Date hoy = new Date()
+                    if (!(val.compareTo(hoy)>0)) 
+                        return ['com.cima.Turno.fechaStart.lessthantoday.error']
+                }
+                titulo (nullable:true,blank:true)
 		
     }
 	

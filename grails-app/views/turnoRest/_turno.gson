@@ -6,4 +6,3 @@ model{
 
 json g.render(turno)
     
-
