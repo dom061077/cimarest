@@ -1,0 +1,5 @@
+import com.cima.enums.EstadoEvent
+
+model{
+    
+}

@@ -114,4 +114,9 @@ class GeneralLookupController {
         [list:list]
     }
     
+    def listEstadosTurnosList(){
+        def estados = EstadoEvent.list()
+        [estados:estados]
+    }    
+    
 }

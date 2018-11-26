@@ -72,6 +72,6 @@ class TurnoRestController {
         [turnos:turnos]
     }
 
-    
+
     
 }
