@@ -1,5 +1,7 @@
 import com.cima.enums.EstadoEvent
 
 model{
-    
+    List<EstadoEvent> estados = []
 }
+
+json estados.collect([id:it,descripcion:it.name])
