@@ -4,4 +4,6 @@ model{
     List<EstadoEvent> estados = []
 }
 
-json estados.collect([id:it,descripcion:it.name])
+json  estados.collect{[id:it,nombre:it.name]} 
+
+    

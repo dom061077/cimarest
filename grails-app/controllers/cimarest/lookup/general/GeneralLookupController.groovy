@@ -9,6 +9,7 @@ import com.cima.Profesional
 import com.cima.Provincia
 import com.cima.Localidad
 import com.cima.ObraSocial
+import com.cima.enums.EstadoEvent
 import grails.plugin.springsecurity.annotation.Secured
 
 
