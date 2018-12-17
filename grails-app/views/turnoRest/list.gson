@@ -4,6 +4,8 @@ model{
      List<Turno> turnos=[]
 }
 
-json turnos.collect{[id:it.id,title:it.titulo,start:it.start,end:it.end]} 
+json turnos.collect{[id:it.id,title:it.titulo,start:it.start,end:it.end
+        ,dni:it.paciente?.dni
+        ,apellidoNombre:it.paciente?.apellidoNombre,estado:it.estado]} 
     
 
