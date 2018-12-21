@@ -1,7 +1,7 @@
-import com.cima.enums.EstadoEvent
+import com.cima.enums.EstadoTurno
 
 model{
-    List<EstadoEvent> estados = []
+    List<EstadoTurno> estados = []
 }
 
 json  estados.collect{[id:it,nombre:it.name]} 

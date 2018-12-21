@@ -1,6 +1,6 @@
 package com.cima
 
-import com.cima.enums.EstadoEvent
+import com.cima.enums.EstadoTurno
 
 class Event {
 	Date fechaStart
@@ -10,7 +10,7 @@ class Event {
 	String titulo
 	boolean allDay
 	boolean atendido
-	EstadoEvent estado=EstadoEvent.EVENT_PENDIENTE
+	EstadoTurno estado=EstadoTurno.TURNO_PENDIENTE
     
 
     static constraints = {

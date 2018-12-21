@@ -6,7 +6,7 @@ import grails.converters.*
 import com.cima.Turno
 import grails.plugin.springsecurity.annotation.Secured
 import java.text.SimpleDateFormat
-import com.cima.enums.EstadoEvent
+import com.cima.enums.EstadoTurno
 
 @Secured("ROLE_USER")
 class TurnoRestController {
@@ -24,7 +24,7 @@ class TurnoRestController {
         log.debug('VALOR DE fStart: '+request.JSON.start+' fEnd: '+request.JSON.end)
         def turnoInstance = new Turno(fechaStart:fStart,fechaEnd:fEnd,start:request.JSON.start.trim()
             ,end: request.JSON.end.trim(),titulo: request.JSON.title
-                    ,estado: EstadoEvent.EVENT_PENDIENTE)
+                    ,estado: EstadoTurno.TURNO_PENDIENTE)
                 
               
        turnoInstance = turnoService.save(turnoInstance,request.JSON.pacienteId,request.JSON.profesionalId)
@@ -38,6 +38,13 @@ class TurnoRestController {
 
         log.debug("Id Objecto devuelto: "+turnoInstance?.id)
         [turno:turnoInstance]
+    }
+    
+    def updateEstado(){
+        log.info('Modificando estado del turno: '+request.JSON)
+        boolean result = turnoService.updateEstado(Long.valueOf(request.JSON.id)
+            ,EstadoTurno.valueOf(request.JSON.estado))
+        [result:result]
     }
     
     def update(){

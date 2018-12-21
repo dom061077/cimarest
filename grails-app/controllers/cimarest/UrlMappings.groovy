@@ -25,6 +25,7 @@ class UrlMappings {
         /*turnos-----------------*/
         post "/api/addturno" (controller:"turnoRest",action:"add")
         post "/api/updateturno" (controller:"turnoRest",action:"update")
+        post "/api/updateturnoestado" (controller:"turnoRest",action:"updateEstado")
         get "/api/listturnos" (controller:"turnoRest",action:"list")
         
         

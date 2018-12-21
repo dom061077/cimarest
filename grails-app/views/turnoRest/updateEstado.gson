@@ -1,0 +1,7 @@
+/*model {
+    boolean result
+}*/
+
+json{
+    success true
+}

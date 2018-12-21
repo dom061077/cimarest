@@ -3,6 +3,7 @@ package com.cima
 import grails.gorm.transactions.Transactional
 import com.cima.Paciente
 import com.cima.Profesional
+import com.cima.enums.EstadoTurno
 
 
 @Transactional
@@ -33,6 +34,19 @@ class TurnoService {
             return turnoInstanceSaved
         else
             return turnoInstanceToSave
+    }
+    
+    def updateEstado(Long turnoId,EstadoTurno estado){
+        def turnoInstance  = Turno.get(turnoId)
+        if (turnoInstance == null )
+            return false
+        else{    
+            turnoInstance.estado = EstadoTurno.TURNO_ENSALA
+            log.info('Antes de cambiar el estado: '+estado)
+            if (!turnoInstance.save(flush:true))
+                return false
+        }
+        return true
     }
     
 }
