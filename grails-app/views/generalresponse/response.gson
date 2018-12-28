@@ -1,0 +1,9 @@
+model{
+    boolean success
+    List<String> messages
+}
+
+json{
+    success success
+    messages messages
+}

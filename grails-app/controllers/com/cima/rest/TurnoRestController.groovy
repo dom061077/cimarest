@@ -44,6 +44,7 @@ class TurnoRestController {
         log.info('Modificando estado del turno: '+request.JSON)
         boolean result = turnoService.updateEstado(Long.valueOf(request.JSON.id)
             ,EstadoTurno.valueOf(request.JSON.estado))
+            
         [result:result]
     }
     
@@ -56,6 +57,14 @@ class TurnoRestController {
         def turnoInstance = new Turno(fechaStart:fStart,fechaEnd:fEnd,start:request.JSON.start.trim()
             ,end: request.JSON.end.trim())
         //update(Long idTurno,Turno turnoInstance,Long idPaciente,Long idProfesional ){
+
+        if (!(turnoInstance.fechaStart.compareTo(hoy)>0)){
+            render(view:"/generalresponse/response"
+                ,model:[success:false,messages:["El turno no debe comenzar antes de la fecha y hora actual "]])
+            return
+        } 
+            
+        
         turnoInstance  = turnoService.update(request.JSON.id,turnoInstance)        
         if (turnoInstance.hasErrors() || !turnoInstance.validate()){
             turnoInstance.errors.each{

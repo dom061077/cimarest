@@ -4,6 +4,6 @@ model{
     List<EstadoTurno> estados = []
 }
 
-json  estados.collect{[id:it,nombre:it.name]} 
+json  estados.collect{[id:it,nombre:it.getValues()[0]]} 
 
     

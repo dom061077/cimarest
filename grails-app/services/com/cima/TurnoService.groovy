@@ -41,8 +41,7 @@ class TurnoService {
         if (turnoInstance == null )
             return false
         else{    
-            turnoInstance.estado = EstadoTurno.TURNO_ENSALA
-            log.info('Antes de cambiar el estado: '+estado)
+            turnoInstance.estado = estado
             if (!turnoInstance.save(flush:true))
                 return false
         }

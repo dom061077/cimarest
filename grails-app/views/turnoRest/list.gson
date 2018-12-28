@@ -6,6 +6,7 @@ model{
 
 json turnos.collect{[id:it.id,title:it.titulo,start:it.start,end:it.end
         ,dni:it.paciente?.dni
-        ,apellidoNombre:it.paciente?.apellidoNombre,estado:it.estado]} 
+        ,apellidoNombre:it.paciente?.apellidoNombre,estado:it.estado
+        ,color: it.estado.getValues()[1]]} 
     
 
