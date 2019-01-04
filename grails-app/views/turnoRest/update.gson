@@ -5,4 +5,7 @@ model {
 }
 
 
-json g.render(turno)
+json{
+    success true
+    
+} 

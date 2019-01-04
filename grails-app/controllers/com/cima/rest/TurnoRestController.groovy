@@ -48,6 +48,14 @@ class TurnoRestController {
         [result:result]
     }
     
+    def delete(){
+        log.info('Eliminando turno: '+request.JSON)
+        turnoService.delete(request.JSON.id);
+        render(view:"/generalresponse/response"
+                ,model:[success:true]
+            )
+    }
+    
     def update(){
         log.info('Modificando datos del turno: '+request.JSON)
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm")
@@ -58,6 +66,7 @@ class TurnoRestController {
             ,end: request.JSON.end.trim())
         //update(Long idTurno,Turno turnoInstance,Long idPaciente,Long idProfesional ){
 
+        
         if (!(turnoInstance.fechaStart.compareTo(hoy)>0)){
             render(view:"/generalresponse/response"
                 ,model:[success:false,messages:["El turno no debe comenzar antes de la fecha y hora actual "]])

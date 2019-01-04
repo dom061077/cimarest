@@ -22,13 +22,11 @@ class Turno {
 		paciente(nullable:true,blank:true)
 		profesional(nullable:false,blank:false)
 		//user(nullable:true,blank:true)
-                /*fechaStart validator: { val, obj ->
-                    if(obj == null){
-                        Date hoy = new Date()
-                        if (!(val.compareTo(hoy)>0)) 
-                            return ['com.cima.Turno.fechaStart.lessthantoday.error']
-                    }    
-                }*/
+                fechaStart validator: { val, obj ->
+                    Date hoy = new Date()
+                    if (obj.getPersistentValue('estado') != EstadoTurno.TURNO_PENDIENTE) 
+                        return ['com.cima.turno.fechaStart.estadonopendiente.error']
+                }
                 titulo (nullable:true,blank:true)
 		
     }

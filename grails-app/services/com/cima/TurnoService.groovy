@@ -48,4 +48,14 @@ class TurnoService {
         return true
     }
     
+    def delete(Long turnoId){
+        def turnoInstance = Turno.get(turnoId)
+        if(turnoIntance == null)
+            return false
+        else{
+            turnosInstance.delete()
+        }   
+        return true
+    }
+    
 }
