@@ -42,18 +42,21 @@ class TurnoService {
             return false
         else{    
             turnoInstance.estado = estado
-            if (!turnoInstance.save(flush:true))
+
+          
+            if (!turnoInstance.save(flush:true)){
                 return false
+            }
         }
         return true
     }
     
     def delete(Long turnoId){
         def turnoInstance = Turno.get(turnoId)
-        if(turnoIntance == null)
+        if(turnoInstance == null)
             return false
         else{
-            turnosInstance.delete()
+            turnoInstance.delete()
         }   
         return true
     }

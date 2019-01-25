@@ -1,7 +1,9 @@
-/*model {
+model {
     boolean result
-}*/
+    String message
+}
 
 json{
-    success true
+    success result
+    message message
 }

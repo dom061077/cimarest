@@ -8,10 +8,11 @@ import grails.plugin.springsecurity.annotation.Secured
 import java.text.SimpleDateFormat
 import com.cima.enums.EstadoTurno
 
-@Secured("ROLE_USER")
+@Secured("hasAnyRole('ROLE_USER','ROLE_PROFESIONAL')")
 class TurnoRestController {
         def turnoService
 	static responseFormats = ['json', 'xml']
+        //static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 	
     def index() { }
     
@@ -45,15 +46,21 @@ class TurnoRestController {
         boolean result = turnoService.updateEstado(Long.valueOf(request.JSON.id)
             ,EstadoTurno.valueOf(request.JSON.estado))
             
-        [result:result]
+        [result:result,message:'No se puede modificar un turno con estado no pendiente']
     }
     
     def delete(){
-        log.info('Eliminando turno: '+request.JSON)
-        turnoService.delete(request.JSON.id);
-        render(view:"/generalresponse/response"
-                ,model:[success:true]
-            )
+        log.info('Eliminando turno: '+params)
+        boolean result = turnoService.delete(Long.parseLong(params.id));
+        if(result)
+            render(view:"updateEstado"
+                    ,model:[success:true]
+                )
+        else        
+            render(view:"updateEstado"
+                    ,model:[success:false,message:'No se puede eliminar un turno no pendiente']
+                )
+        
     }
     
     def update(){
@@ -87,7 +94,6 @@ class TurnoRestController {
     
     
     def list(){
-        log.info("Metodo list")
         def turnos = Turno.createCriteria().list(){
             profesional{
                 if(params.profesionalId)

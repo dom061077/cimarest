@@ -13,7 +13,7 @@ import com.cima.enums.EstadoTurno
 import grails.plugin.springsecurity.annotation.Secured
 
 
-@Secured("ROLE_USER")
+@Secured("hasAnyRole('ROLE_USER','ROLE_PROFESIONAL')")
 class GeneralLookupController {
 	static responseFormats = ['json', 'xml']
         
@@ -116,7 +116,7 @@ class GeneralLookupController {
     }
     
     def listEstadosTurnosList(){
-        def estados = EstadoTurno.list()
+        def estados = EstadoTurno.list(EstadoTurno.TURNO_ATENDIDO)
         [estados:estados]
     }    
     

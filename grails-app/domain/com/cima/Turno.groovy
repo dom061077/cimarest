@@ -24,8 +24,12 @@ class Turno {
 		//user(nullable:true,blank:true)
                 fechaStart validator: { val, obj ->
                     Date hoy = new Date()
-                    if (obj.getPersistentValue('estado') != EstadoTurno.TURNO_PENDIENTE) 
+                    if (obj.getPersistentValue('estado') != EstadoTurno.TURNO_PENDIENTE   && obj.id  != null ) 
                         return ['com.cima.turno.fechaStart.estadonopendiente.error']
+                    //if (obj.getPersistentValue('estado') == EstadoTurno.TURNO_PENDIENTE && obj.id != null
+                    //    && obj.getPersistentValue('fechaStart').compareTo(obj.fechaStart)==0)    
+                    //    return ['com.cima.turno.fechaStart.estadonopendiente.error']
+                        
                 }
                 titulo (nullable:true,blank:true)
 		

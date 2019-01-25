@@ -26,7 +26,7 @@ class UrlMappings {
         post "/api/addturno" (controller:"turnoRest",action:"add")
         post "/api/updateturno" (controller:"turnoRest",action:"update")
         post "/api/updateturnoestado" (controller:"turnoRest",action:"updateEstado")
-        delete "/api/deleteturno" (controller:"turnoRest",action:"delete")
+        delete "/api/deleteturno/$id" (controller:"turnoRest",action:"delete")
         
         get "/api/listturnos" (controller:"turnoRest",action:"list")
         

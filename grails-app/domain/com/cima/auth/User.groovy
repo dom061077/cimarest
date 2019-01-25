@@ -3,6 +3,7 @@ package com.cima.auth
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import grails.compiler.GrailsCompileStatic
+import com.cima.Profesional;
 
 @GrailsCompileStatic
 @EqualsAndHashCode(includes='username')
@@ -17,6 +18,7 @@ class User implements Serializable {
     boolean accountExpired
     boolean accountLocked
     boolean passwordExpired
+    Profesional profesional
 
     Set<Role> getAuthorities() {
         (UserRole.findAllByUser(this) as List<UserRole>)*.role as Set<Role>
@@ -25,6 +27,7 @@ class User implements Serializable {
     static constraints = {
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
+        profesional (nullable: true)
     }
 
     static mapping = {
