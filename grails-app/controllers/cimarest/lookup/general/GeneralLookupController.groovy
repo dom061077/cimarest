@@ -31,8 +31,8 @@ class GeneralLookupController {
         def c = Cie10.createCriteria()
        
         List list = c.list(offset:offset,max:max){
-            if(params.filtro)
-                ilike("descripcion","%"+params.filtro+"%")
+            if(params.filter)
+                ilike("descripcion","%"+params.filter+"%")
         }
         
         
