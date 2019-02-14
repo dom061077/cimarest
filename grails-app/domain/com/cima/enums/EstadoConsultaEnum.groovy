@@ -13,6 +13,10 @@ public enum EstadoConsultaEnum{
 	static list(){
 		[ESTADO_PUBLICO, ESTADO_PRIVADO]
 	}
+        
+        public String getValue(){
+           return name; 
+        }
 	
 	
 }

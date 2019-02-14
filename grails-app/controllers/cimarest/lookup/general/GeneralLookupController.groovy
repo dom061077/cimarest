@@ -10,6 +10,7 @@ import com.cima.Provincia
 import com.cima.Localidad
 import com.cima.ObraSocial
 import com.cima.enums.EstadoTurno
+import com.cima.enums.EstadoConsultaEnum
 import grails.plugin.springsecurity.annotation.Secured
 
 
@@ -119,5 +120,10 @@ class GeneralLookupController {
         def estados = EstadoTurno.list(EstadoTurno.TURNO_ATENDIDO)
         [estados:estados]
     }    
+    
+    def listEstadoConsulta(){
+        def estados = EstadoConsultaEnum.list()
+        [estados:estados]
+    }
     
 }

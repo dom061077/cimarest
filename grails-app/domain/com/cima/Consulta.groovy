@@ -14,7 +14,7 @@ class Consulta {
 	Turno turno
 
 	//examen fisico	
-	String pulso
+	/*String pulso
 	String fc
 	String ta
 	String fr
@@ -29,7 +29,7 @@ class Consulta {
 	String marcha
 	String psiqui
 	String facie
-	Institucion institucion
+	Institucion institucion*/
     
     
     static constraints = {

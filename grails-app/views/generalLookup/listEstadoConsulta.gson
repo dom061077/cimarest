@@ -1,0 +1,7 @@
+import com.cima.enums.EstadoConsultaEnum
+
+model{
+    List<EstadoConsultaEnum> estados = []
+}
+
+json estados.collect{[id:it,nombre:it.getValue()]}
