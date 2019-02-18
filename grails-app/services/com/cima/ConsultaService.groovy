@@ -5,6 +5,7 @@ import grails.gorm.transactions.Transactional
 
 @Transactional
 class ConsultaService {
+    static transactional = true
     
     def serviceMethod() {
 

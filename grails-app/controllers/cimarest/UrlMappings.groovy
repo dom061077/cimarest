@@ -34,5 +34,8 @@ class UrlMappings {
         
         /*-Pacientes------------------*/
         get "/api/paciente/search" (controller:"pacienteRest",action:"search")
+        
+        /*--------Consultas-----------*/
+        post "/api/addconsulta" (controller:"consulta",action:"add")
     }
 }

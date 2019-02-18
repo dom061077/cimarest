@@ -1,0 +1,7 @@
+import com.cima.Consulta
+
+model{
+    Consulta consulta
+}
+
+json g.render(consulta)
