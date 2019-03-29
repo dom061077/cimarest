@@ -34,4 +34,8 @@ class Consulta {
     
     static constraints = {
     }
+    
+    static mapping = {
+        turno : 'save-update'
+    }
 }

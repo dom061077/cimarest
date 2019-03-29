@@ -1,6 +1,7 @@
 package com.cima
 
 import com.cima.enums.EstadoConsultaEnum
+import com.cima.enums.EstadoTurno
 import grails.gorm.transactions.Transactional
 
 @Transactional
@@ -11,22 +12,28 @@ class ConsultaService {
 
     }
     
-    def save(String contenido,Long cie10Id,Long profesionalId,Long pacienteId
-        ,EstadoConsultaEnum estado,Long turnoId){
+    def save(String contenido,String estado,Long cie10Id,Long turnoId){
         
-        def cie10Instance = Cie10.load(cie10Id)
-        def profesionalInstance = Profesional.load(profesionalId)
-        def pacienteInstance = Paciente.load(pacienteId)
         def turnoInstance = Turno.load(turnoId)
-        def consultaInstance = new Consulta(contenido:contenido
-            ,cie10:cie10Instance,profesional:profesionalInstance
-            ,paciente:pacienteInstance,turno:turnoInstance)
+        log.info('turnoInstance: '+turnoInstance.profesional);
+        def cie10Instance = Cie10.load(cie10Id)
+        def profesionalInstance = turnoInstance.profesional
+        def pacienteInstance = turnoInstance.paciente
         
-        
-        def consultaInstanceSaved = consultaInstance.save(failOnError:false)
-        if(consultaInstanceSaved!=null)
-            return consultainstanceSaved
-        else
-            return consultaInstance
+        Consulta.withTransaction{status ->
+            def consultaInstance = new Consulta(contenido:contenido
+                ,cie10:cie10Instance,profesional:profesionalInstance
+                ,estado:estado
+                ,paciente:pacienteInstance,turno:turnoInstance)
+            consultaInstance.turno.estado = EstadoTurno.TURNO_ATENDIDO    
+
+            def consultaInstanceSaved = consultaInstance.save(failOnError:false)
+            if(consultaInstanceSaved!=null)
+                return consultaInstanceSaved
+            else{
+                status.setRollbackOnly()
+                return consultaInstance
+            }
+        }
     }
 }
