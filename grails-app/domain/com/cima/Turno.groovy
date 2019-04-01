@@ -22,7 +22,10 @@ class Turno {
 		paciente(nullable:true,blank:true)
 		profesional(nullable:false,blank:false)
 		//user(nullable:true,blank:true)
-                fechaStart validator: { val, obj ->
+                
+        tendre que validar en los diferentes metodos y ver la manera de agregar 
+        los errores en la conlecion errors de del objeto turno
+                /*fechaStart validator: { val, obj ->
                     Date hoy = new Date()
                     if (obj.getPersistentValue('estado') != EstadoTurno.TURNO_PENDIENTE   && obj.id  != null ) 
                         return ['com.cima.turno.fechaStart.estadonopendiente.error']
@@ -30,7 +33,7 @@ class Turno {
                     //    && obj.getPersistentValue('fechaStart').compareTo(obj.fechaStart)==0)    
                     //    return ['com.cima.turno.fechaStart.estadonopendiente.error']
                         
-                }
+                }*/
                 titulo (nullable:true,blank:true)
 		
     }

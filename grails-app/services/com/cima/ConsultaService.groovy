@@ -3,37 +3,50 @@ package com.cima
 import com.cima.enums.EstadoConsultaEnum
 import com.cima.enums.EstadoTurno
 import grails.gorm.transactions.Transactional
+import grails.validation.ValidationException
 
-@Transactional
+
 class ConsultaService {
-    static transactional = true
+    
     
     def serviceMethod() {
 
     }
     
+    @Transactional
     def save(String contenido,String estado,Long cie10Id,Long turnoId){
         
-        def turnoInstance = Turno.load(turnoId)
-        log.info('turnoInstance: '+turnoInstance.profesional);
-        def cie10Instance = Cie10.load(cie10Id)
-        def profesionalInstance = turnoInstance.profesional
-        def pacienteInstance = turnoInstance.paciente
+            def cie10Instance = Cie10.load(cie10Id)
         
-        Consulta.withTransaction{status ->
+            def turnoInstance = Turno.get(turnoId)
+            log.info('turnoInstance: '+turnoInstance.profesional);
+            def pacienteInstance = turnoInstance.paciente
+            def profesionalInstance = turnoInstance.profesional
+            
+            
             def consultaInstance = new Consulta(contenido:contenido
                 ,cie10:cie10Instance,profesional:profesionalInstance
                 ,estado:estado
                 ,paciente:pacienteInstance,turno:turnoInstance)
             consultaInstance.turno.estado = EstadoTurno.TURNO_ATENDIDO    
+            
 
-            def consultaInstanceSaved = consultaInstance.save(failOnError:false)
-            if(consultaInstanceSaved!=null)
-                return consultaInstanceSaved
-            else{
-                status.setRollbackOnly()
-                return consultaInstance
+            
+            if(consultaInstance.turno.validate() && consultaInstance.validate()){
+                def consultaInstanceSaved = consultaInstance.save(failOnError:true)
+                throw new ValidationException("Consulta no es válida DASFA", consultaInstance.errors)
+                if(consultaInstanceSaved!=null){
+                    return consultaInstanceSaved
+                }else{
+                    throw new ValidationException("Consulta no es válida DASFA", consultaInstance.errors)
+
+                    return consultaInstance
+                }
+            }else{
+                throw new ValidationException("Consulta no es válida", consultaInstance.errors)
             }
-        }
+            
+            
+            
     }
 }
