@@ -15,11 +15,19 @@ class TurnoService {
         def profesionalInstance = Profesional.load(idProfesional)
         turnoInstance.paciente = pacienteInstance
         turnoInstance.profesional = profesionalInstance
-        def turnoInstanceSaved = turnoInstance.save(failOnError:false)     
-        if (turnoInstanceSaved!=null)
-            return turnoInstanceSaved
-        else
+        Date dateNow = new Date()
+        def turnoInstanceSaved = null
+        if(turnoInstance.validate()){
+            log.info("La validación es correcta se procede a guardarla instancia")
+            turnoInstanceSaved = turnoInstance.save()     
+            if (turnoInstanceSaved!=null)
+                return turnoInstanceSaved
+            else
+                return turnoInstance
+        }else{
+            log.info("Error de validación en instancia de turno")
             return turnoInstance
+        }
     }
     
     def update(Long idTurno,Turno turnoInstance ){

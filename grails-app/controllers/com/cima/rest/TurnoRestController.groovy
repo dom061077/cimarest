@@ -27,9 +27,9 @@ class TurnoRestController {
             ,end: request.JSON.end.trim(),titulo: request.JSON.title
                     ,estado: EstadoTurno.TURNO_PENDIENTE)
                 
-              
+     
        turnoInstance = turnoService.save(turnoInstance,request.JSON.pacienteId,request.JSON.profesionalId)
-       if (turnoInstance.hasErrors() || !turnoInstance.validate()){
+       if (turnoInstance.hasErrors()/* || !turnoInstance.validate()*/){
             turnoInstance.errors.each{
                 log.debug('ERROR!!!: '+it)
             }
