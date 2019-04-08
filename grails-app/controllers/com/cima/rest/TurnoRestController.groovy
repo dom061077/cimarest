@@ -74,11 +74,11 @@ class TurnoRestController {
         //update(Long idTurno,Turno turnoInstance,Long idPaciente,Long idProfesional ){
 
         
-        if (!(turnoInstance.fechaStart.compareTo(hoy)>0)){
+        /*if (!(turnoInstance.fechaStart.compareTo(hoy)>0)){
             render(view:"/generalresponse/response"
                 ,model:[success:false,messages:["El turno no debe comenzar antes de la fecha y hora actual "]])
             return
-        } 
+        } */
             
         
         turnoInstance  = turnoService.update(request.JSON.id,turnoInstance)        

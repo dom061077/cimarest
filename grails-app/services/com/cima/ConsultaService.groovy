@@ -32,18 +32,22 @@ class ConsultaService {
             
 
             
-            if(consultaInstance.turno.validate() && consultaInstance.validate()){
+            if(consultaInstance.validate()){
                 def consultaInstanceSaved = consultaInstance.save(failOnError:true)
-                throw new ValidationException("Consulta no es válida DASFA", consultaInstance.errors)
                 if(consultaInstanceSaved!=null){
                     return consultaInstanceSaved
                 }else{
-                    throw new ValidationException("Consulta no es válida DASFA", consultaInstance.errors)
+                    
 
                     return consultaInstance
                 }
             }else{
-                throw new ValidationException("Consulta no es válida", consultaInstance.errors)
+                log.info('Iterando error: ')
+                consultaInstance.errors.allErrors.each{
+                    log.info("Error: "+it)
+                }
+                
+                return consultaInstance
             }
             
             
