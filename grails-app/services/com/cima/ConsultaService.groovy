@@ -31,7 +31,6 @@ class ConsultaService {
             consultaInstance.turno.estado = EstadoTurno.TURNO_ATENDIDO    
             
 
-            
             if(consultaInstance.validate()){
                 def consultaInstanceSaved = consultaInstance.save(failOnError:true)
                 if(consultaInstanceSaved!=null){
@@ -41,14 +40,10 @@ class ConsultaService {
 
                     return consultaInstance
                 }
-            }else{
-                log.info('Iterando error: ')
-                consultaInstance.errors.allErrors.each{
-                    log.info("Error: "+it)
-                }
-                
-                return consultaInstance
             }
+            
+            return consultaInstance
+        
             
             
             

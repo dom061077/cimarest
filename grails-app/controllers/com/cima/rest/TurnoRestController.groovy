@@ -43,10 +43,17 @@ class TurnoRestController {
     
     def updateEstado(){
         log.info('Modificando estado del turno: '+request.JSON)
-        boolean result = turnoService.updateEstado(Long.valueOf(request.JSON.id)
+        def turnoInstance = turnoService.updateEstado(Long.valueOf(request.JSON.id)
             ,EstadoTurno.valueOf(request.JSON.estado))
+        if (turnoInstance.hasErrors()){
+            turnoInstance.errors.each{
+                log.debug('ERROR!!!: '+it)
+            }            
+            render(view:"/errors/_errors",model:[errors:turnoInstance.errors])
+            return
+        }
             
-        [result:result,message:'No se puede modificar un turno con estado no pendiente']
+        [turno:turnoInstance]
     }
     
     def delete(){

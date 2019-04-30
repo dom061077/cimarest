@@ -1,9 +1,8 @@
-model {
-    boolean result
-    String message
+import com.cima.Turno
+
+model{
+    Turno turno
 }
 
-json{
-    success result
-    message message
-}
+json g.render(turno)
+    

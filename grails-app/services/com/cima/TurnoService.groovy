@@ -46,17 +46,12 @@ class TurnoService {
     
     def updateEstado(Long turnoId,EstadoTurno estado){
         def turnoInstance  = Turno.get(turnoId)
-        if (turnoInstance == null )
-            return false
-        else{    
-            turnoInstance.estado = estado
-
-          
-            if (!turnoInstance.save(flush:true)){
-                return false
-            }
+        turnoInstance.estado = estado
+        if (turnoInstance.validate()){
+            def turnoInstanceSaved = turnoInstance.save()
+            return turnoInstanceSaved
         }
-        return true
+        return turnoInstance
     }
     
     def delete(Long turnoId){

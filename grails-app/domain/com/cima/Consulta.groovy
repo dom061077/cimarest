@@ -12,6 +12,8 @@ class Consulta {
 	Paciente paciente
 	EstadoConsultaEnum estado
 	Turno turno
+        
+        static belongsTo = [turno:Turno]
 
 	//examen fisico	
 	/*String pulso
@@ -33,6 +35,7 @@ class Consulta {
     
     
     static constraints = {
+        contenido(nullable:false,blank:false)
     }
     
     static mapping = {
