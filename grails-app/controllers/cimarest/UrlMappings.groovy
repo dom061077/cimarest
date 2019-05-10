@@ -37,5 +37,6 @@ class UrlMappings {
         
         /*--------Consultas-----------*/
         post "/api/addconsulta" (controller:"consulta",action:"add")
+        post "/api/uploadimage" (controller:"consulta",action:"uploadImage")
     }
 }

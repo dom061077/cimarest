@@ -28,4 +28,11 @@ class ConsultaController {
        }
         [consulta:consultaInstance]    
     }
+    
+    def uploadImage(){
+        def file = request.getFile("identifier_name_in_html_tag_attribute")
+        log.info("file.name: "+file.name);
+        log.info("file.originalFilename: "+file.originalFilenam);
+        log.info("file.size: "+file.size)
+    }
 }
